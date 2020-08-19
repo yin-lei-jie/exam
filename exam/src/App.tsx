@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.module.scss';
+// 引入路由
+import { HashRouter } from 'react-router-dom';
+import config from './router/config';
+import RouterView from './router/RouterView';
+// 引入useObserver
+import { useObserver } from 'mobx-react-lite';
+// import useStore from './context/useStore';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // let { user } = useStore;
+  return useObserver(() =>
+    (<HashRouter>
+      <RouterView routes={config}></RouterView>
+    </HashRouter>
+  ));
 }
 
 export default App;
