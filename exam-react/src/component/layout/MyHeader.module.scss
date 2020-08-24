@@ -1,0 +1,16 @@
+:global{
+    .ant-layout-header.header{
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .avatar{
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            display: inline-block;
+            border-radius: 50%;
+            background: #c0c0c0;
+        }
+    }
+}

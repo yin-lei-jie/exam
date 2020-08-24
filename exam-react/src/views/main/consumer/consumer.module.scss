@@ -1,0 +1,22 @@
+.consumer{
+    width: 100%;
+    height: 100%;
+    h1{
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+}
+.add_consumer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .add_main{
+        width: calc(100%/3);
+        border: 1px solid #ddd;
+        padding: 5px;
+    }
+}
