@@ -65,6 +65,7 @@ function Room() {
             content: '确定删除此教室吗?',
             async onOk() {
               let result: any = await grade.mangerRoomDeleteAction(id);
+              console.log(result, '-----');
               if(result.code === 1){
                 message.success(result.msg);
               } else {
@@ -76,7 +77,7 @@ function Room() {
 
     return useObserver(() =>
         <div className={styles.class}>
-            <h1>班级管理</h1>
+            <h1 className="style_h1">教室管理</h1>
             <div className={styles.main}>
                 <Button className={styles.button} type="primary" htmlType="submit" onClick={addRoom}>+ 添加类型</Button>
                 <Table className={styles.tabRoom} rowKey="room_id" columns={columns} dataSource={grade.roomList} size="middle" />

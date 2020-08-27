@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import useStore from '@/context/useStore';
-import { Table, Button, Space, Modal, Form, Input } from 'antd';
-import { ClassList } from '../../../utils/interface';
+import { Table, Button, Space, Modal, Form, Input, message } from 'antd';
 import { useObserver } from 'mobx-react-lite';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+
 const styles = require('./class.module.scss');
+const { confirm } = Modal;
 
 
 function StudentManager() {
@@ -33,9 +35,9 @@ function StudentManager() {
         {
             title: '操作',
             dataIndex: 'action',
-            render: (text: any, record: ClassList) => (
+            render: (text: any, record: any) => (
                 <Space size="middle">
-                  <a>删除</a>
+                  <a onClick={() => deleteStudent(record.student_id)}>删除</a>
                 </Space>
               )
         },
@@ -43,11 +45,27 @@ function StudentManager() {
 
     useEffect(() => {
         grade.mangerStudentAction();
-    }, [grade])
+    }, [grade]);
+
+    // 删除学生
+    function deleteStudent(id: string) {
+        confirm({
+            icon: <ExclamationCircleOutlined />,
+            content: '确定删除此教室吗?',
+            async onOk() {
+              let result: any = await grade.mangerStudentDeleteAction(id);
+              if(result.code === 1){
+                message.success(result.msg);
+              } else {
+                message.error(result.msg);
+              }
+            }
+        });
+    }
 
     return useObserver(() =>
         <div className={styles.class}>
-            <h1>班级管理</h1>
+            <h1 className="style_h1">学生管理</h1>
             <div className="main">
                 <div className={styles.top}>
                     <Input placeholder="输入学生姓名" />

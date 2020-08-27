@@ -4,6 +4,8 @@ import useStore from '@/context/useStore';
 import { Table, Button, Space, Modal, Form, Input, Select } from 'antd';
 import { ClassList } from '../../../utils/interface';
 import { useObserver } from 'mobx-react-lite';
+import '@/App.scss';
+
 const styles = require('./class.module.scss');
 const { Option } = Select;
 
@@ -55,10 +57,6 @@ function Grade() {
         grade.mangerGradetNewAction();
     }, [grade])
 
-    // 添加班级input
-    // function inputChange(e: any) {
-    //     changeInput(e.target.value);
-    // }
 
     function handleChange(value: any) {
         console.log(`selected ${value}`);
@@ -80,7 +78,7 @@ function Grade() {
 
     return useObserver(() =>
         <div className={styles.class}>
-            <h1>班级管理</h1>
+            <h1 className="style_h1">班级管理</h1>
             <div className={styles.main}>
                 <Button onClick={addGrade} className={styles.button} type="primary" htmlType="submit">+ 添加班级</Button>
                <Table className={styles.tabRoom} rowKey="grade_id" columns={columns} dataSource={grade.classList} size="middle" />

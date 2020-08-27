@@ -9,3 +9,13 @@ export let login = (user_name: string, user_pwd: string) =>{
 export let getUserInfo = ()=>{
     return request.get('/user/userInfo');
 }
+
+// 获取视图权限数据
+export let getUserViewAuthority = ()=>{
+    return request.get('/user/view_authority');
+}
+
+// 更新用户信息(用户名，用户密码，用户身份)
+export let updateUserInfo = (data: any)=>{
+    return request.put('/user/user', {data});
+}

@@ -37,6 +37,13 @@ export interface RouterConfig{
     children?: RouterConfig[]
 }
 
+// 获取所有考试类型的接口
+export interface QuestionList{
+    questions_type_id: string;
+    questions_type_text: string;
+    questions_type_sort: string;
+}
+
 // 添加试题类型接口
 export interface IInsertQuestionsType{
     text:string;

@@ -10,7 +10,7 @@ const MyBreadCrumb: React.FC = () => {
     return <section>
         {
             util.tags.map((item: ITag, index) => {
-                return <Tag color={location.pathname === item.path ? 'red' : ''} closable onClose={() => util.removeTag(item)}>
+                return <Tag key={index} color={location.pathname === item.path ? 'red' : ''} closable onClose={() => util.removeTag(item)}>
                     <NavLink to={item.path}>{item.name}</NavLink>
                 </Tag>
             })

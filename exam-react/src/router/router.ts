@@ -1,4 +1,3 @@
-import React from 'react'
 import menus from './menu'
 import { IMenuItem, IRouterItem } from '@/utils/interface';
 // 引入路由

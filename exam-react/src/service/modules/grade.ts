@@ -71,5 +71,5 @@ export const mangerStudentEdit = (student_id: string, student_name?: string, stu
 
 // 删除学生接口
 export const mangerStudentDelete = (student_id: string) => {
-    return request.delete('/manger/room/delete',{params: {student_id}})
+    return request.delete('/manger/student/delete',{data: {student_id}})
 }

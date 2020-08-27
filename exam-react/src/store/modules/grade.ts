@@ -6,7 +6,8 @@ import { managerGrade,
   mangerStudent,
   mangerRoomAdd,
   mangerRoomDelete,
-  managerGradeAdd
+  managerGradeAdd,
+  mangerStudentDelete
  } from '@/service';
 import { ClassList, StudentList } from '@/utils/interface';
 
@@ -93,6 +94,16 @@ export default class Grade {
     let result = await mangerStudent();
     // console.log(result, '------')
     if(result) {
+      this.studentList = result.data.data;
+    }
+    return result;
+  }
+
+  // 删除学生接口
+  @action
+  async mangerStudentDeleteAction(student_id: string) {
+    let result = await mangerStudentDelete(student_id);
+    if (result) {
       this.studentList = result.data.data;
     }
     return result;
