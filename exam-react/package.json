@@ -53,6 +53,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "react-lite": "^0.15.40",
     "react-router-dom": "^5.2.0",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -61,12 +62,13 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.8",
     "ts-pnp": "1.1.6",
-    "typescript": "~3.7.2",
+    "typescript": "~3.8.3",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "xlsx": "^0.16.6"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -153,6 +155,7 @@
     "js-cookie": "^2.2.1",
     "mobx": "^5.15.6",
     "mobx-react-lite": "^2.0.7",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "react-intl": "^5.7.2"
   }
 }

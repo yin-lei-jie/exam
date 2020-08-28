@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import { login, getUserInfo } from '@/service';
+import { login, getUserInfo, getUserViewAuthority } from '@/service';
 import { setToken, removeToken } from '@/utils/index';
 import { useHistory } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ export default class User{
     @action
     async loginAction(user_name: string, user_pwd: string) {
         let result: any = await login(user_name, user_pwd);
+        console.log(result, '----result')
         if(result.data.code === 1) {
             setToken(result.data.token);
             this.isLogin = true;
@@ -43,5 +44,11 @@ export default class User{
             this.userInfo = result.data.data;
             this.isGetUserInfo = false;
         }
+    }
+
+    // 获取视图权限数据
+    @action
+    async getUserViewAuthorityAction() {
+        return await getUserViewAuthority();
     }
 }

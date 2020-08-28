@@ -4,7 +4,6 @@ import { IMenuItem, IRouterItem } from '@/utils/interface';
 import Login from '../views/login/Login';
 import Main from '../views/main/Main';
 
-
 function geneRouter(menus: IMenuItem[]){
     let routes: IRouterItem[] = [];
     menus.forEach(item=>{

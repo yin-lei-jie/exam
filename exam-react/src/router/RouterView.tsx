@@ -8,7 +8,7 @@ import { getToken } from '@/utils/index';
 interface IProps {
     routes: IRouterItem[]
 }
-const whiteList = ['/login', '/403', '/404', '/main'];
+const whiteList = ['/login', '/403', '/404'];
 const RouterView: React.FC<IProps> = (props) => {
     let {user} = useStore();
     return <Switch>{
@@ -25,8 +25,11 @@ const RouterView: React.FC<IProps> = (props) => {
                     routeProps.history.replace(`/login?redirect=${encodeURIComponent(path)}`)
                 }
                 // 2. 获取用户信息
-                if (!Object.keys(user.userInfo).length){
+                if (getToken() && !Object.keys(user.userInfo).length){
+                    // 获取用户基本信息
                     user.getUserInfoAction();
+                    // 获取用户权限
+                    user.getUserViewAuthorityAction();
                 }
 
                 if (item.children) {

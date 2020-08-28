@@ -28,9 +28,8 @@ export default class Grade {
   // 获取已经分配教室的班级的接口
   @action
   async managerGradeAction(){
-    let result = await managerGrade();
-    console.log(result.data, '-----')
-    if(result){
+    let result: any = await managerGrade();
+    if(result.data.code === 1){
       this.classList = result.data.data;
     }
     return result;
@@ -40,7 +39,6 @@ export default class Grade {
   @action
   async managerGradeAddAction(grade_name: string, subject_id: string, room_id?: string) {
     let result = await managerGradeAdd(grade_name, subject_id, room_id);
-    console.log(result, '----');
     return result;
   }
   
@@ -54,9 +52,8 @@ export default class Grade {
   // 获取没有分配教室的班级
   @action
   async mangerGradetNewAction(){
-    let result = await mangerGradetNew();
-    console.log(result, '----new');
-    if(result) {
+    let result: any = await mangerGradetNew();
+    if(result.data.code === 1) {
       this.gradeListNew = result.data.data;
     }
     return result;
@@ -65,9 +62,8 @@ export default class Grade {
   // 获取全部教室接口
   @action
   async mangerRoomAction() {
-    let result = await mangerRoom();
-    // console.log(result, '----room');
-    if(result) {
+    let result: any = await mangerRoom();
+    if(result.data.code === 1) {
       this.roomList = result.data.data;
     }
     return result;
@@ -76,7 +72,6 @@ export default class Grade {
   // 添加教室
   async mangerRoomAddAction(room_text: string) {
     let result = await mangerRoomAdd(room_text);
-    // console.log(result, '---addroom');
     return result;
   }
 
@@ -91,9 +86,8 @@ export default class Grade {
   // 已经分班学生接口
   @action
   async mangerStudentAction() {
-    let result = await mangerStudent();
-    // console.log(result, '------')
-    if(result) {
+    let result: any = await mangerStudent();
+    if(result.data.code === 1) {
       this.studentList = result.data.data;
     }
     return result;
@@ -102,8 +96,8 @@ export default class Grade {
   // 删除学生接口
   @action
   async mangerStudentDeleteAction(student_id: string) {
-    let result = await mangerStudentDelete(student_id);
-    if (result) {
+    let result: any = await mangerStudentDelete(student_id);
+    if (result.data.code === 1) {
       this.studentList = result.data.data;
     }
     return result;

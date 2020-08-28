@@ -45,7 +45,7 @@ class Consumer{
             return;
         }
         let result = await getIdentifyList();
-        if (result.data){
+        if (result.data.code === 1){
             this.identifyList = result.data.data;
         }
     }
@@ -53,7 +53,7 @@ class Consumer{
     // 展示api接口权限数据
     @action
     async getApiAuthorityAction(){
-        if(this.apiAuthorityList) {
+        if(this.apiAuthorityList.length) {
             return;
         }
         let result = await getApiAuthority();
